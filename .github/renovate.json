@@ -10,7 +10,7 @@
   "packageRules": [
     {
       "matchManagers": ["dockerfile"],
-      "matchBaseBranches": ["main"],
+      "matchBaseBranches": ["main", "test-1"],
       "matchUpdateTypes": ["digest"],
       "matchFileNames": ["*Dockerfile.konflux*"],
       "enabled": true,
@@ -20,11 +20,6 @@
       "groupName": "Dockerfile Digest Updates - Main",
       "branchPrefix": "renovate/docker-main/",
       "semanticCommits": "enabled"
-    },
-    {
-      "matchManagers": ["dockerfile"],
-      "matchBaseBranches": ["test-1"],
-      "enabled": false
     },
     {
       "matchManagers": ["tekton"],
