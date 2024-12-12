@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "branchPrefix": "renovate/",
-  "baseBranches": ["main", "test-1"],
+  "baseBranches": ["main", "test-1", "test-2"],
   "ignoreTests": true,
   "automergeType": "pr",
   "automerge": true,
@@ -23,7 +23,7 @@
     },
     {
       "matchManagers": ["tekton"],
-      "matchBaseBranches": ["test-1"],
+      "matchBaseBranches": ["test-1", "test-2"],
       "matchUpdateTypes": ["digest"],
       "enabled": true,
       "groupName": "Tekton Updates",
