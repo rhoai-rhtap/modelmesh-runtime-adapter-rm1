@@ -34,6 +34,15 @@
         "/^quay.io/redhat-appstudio-tekton-catalog//",
         "/^quay.io/konflux-ci/tekton-catalog//"
       ]
+    },
+    {
+      "matchManagers": ["rpm"],
+      "matchBaseBranches": ["main"],
+      "enabled": true,
+      "groupName": "RPM Updates",
+      "commitMessageTopic": "RPM updates",
+      "branchPrefix": "renovate/rpm/",
+      "semanticCommits": "enabled"
     }
   ],
   "dockerfile": {
@@ -101,6 +110,20 @@
           "/^quay.io/redhat-appstudio-tekton-catalog//",
           "/^quay.io/konflux-ci/tekton-catalog//"
         ]
+      }
+    ]
+  },
+  "rpm": {
+    "enabled": true,
+    "packageRules": [
+      {
+        "groupName": "RPM Updates",
+        "matchBaseBranches": ["main"],
+        "commitMessageTopic": "RPM updates",
+        "matchManagers": ["rpm"],
+        "enabled": true,
+        "branchPrefix": "renovate/rpm/",
+        "semanticCommits": "enabled"
       }
     ]
   },
