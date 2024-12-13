@@ -61,7 +61,10 @@
       "**/Dockerfile",
       "!**/Dockerfile.konflux*"
     ],
-    "pinDigests": true
+    "pinDigests": true,
+    "ignoreTests": true,
+    "automerge": true,
+    "automergeType": "pr"
   },
   "tekton": {
     "enabled": true,
