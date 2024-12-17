@@ -5,26 +5,16 @@
   "ignoreTests": true,
   "automergeType": "pr",
   "automerge": true,
-  "baseBranches": ["main", "test-1"],
+  "baseBranches": ["main", "test-1", "test-2"],
   "enabledManagers": ["dockerfile", "tekton", "rpm"],
   "packageRules": [
     {
       "matchManagers": ["dockerfile"],
-      "matchBaseBranches": ["main"],
+      "matchBaseBranches": ["main", "test-1"],
       "matchUpdateTypes": ["digest"],
       "matchFileNames": ["*Dockerfile.konflux*"],
       "enabled": true,
       "groupName": "Dockerfile Digest Updates - Main",
-      "branchPrefix": "renovate/docker-main/",
-      "semanticCommits": "enabled"
-    },
-    {
-      "matchManagers": ["dockerfile"],
-      "matchBaseBranches": ["test-1"],
-      "matchUpdateTypes": ["digest"],
-      "matchFileNames": ["*Dockerfile.konflux*"],
-      "enabled": true,
-      "groupName": "Dockerfile Digest Updates - test-1",
       "branchPrefix": "renovate/docker-main/",
       "semanticCommits": "enabled"
     },
@@ -42,6 +32,16 @@
         "/^quay.io/konflux-ci/tekton-catalog//"
       ]
     }
+    {
+      "matchManagers": ["rpm"],
+      "matchBaseBranches": ["main"],
+      "groupName": "RPM Updates",
+      "commitMessageTopic": "RPM updates",
+      "enabled": true,
+      "schedule": ["at any time"],
+      "branchPrefix": "renovate/rpm/",
+      "semanticCommits": "enabled"
+    }  
   ],
   "dockerfile": {
     "enabled": true,
@@ -107,18 +107,8 @@
   },
   "rpm": {
     "enabled": true,
-    "packageRules": [
-      {
-        "groupName": "RPM Updates",
-        "matchBaseBranches": ["main"],
-        "commitMessageTopic": "RPM updates",
-        "matchManagers": ["rpm"],
-        "enabled": true,
-        "schedule": ["at any time"],
-        "branchPrefix": "renovate/rpm/",
-        "semanticCommits": "enabled"
-      }
-    ]
+    "baseBranches": ["main"],     
+    "schedule": ["at any time"]
   },
   "prHourlyLimit": 0
 }
